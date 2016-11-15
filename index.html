@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Personal Finance</title>
+
+<script src="lib/onsen/js/onsenui.js"></script>
+
+<script src="js/db.js"></script>
+<script src="js/app.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/websqldump.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+
+<link rel="stylesheet" href="lib/onsen/css/onsenui.css">
+<link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<ons-navigator id="myNavigator" page="navigator.html"></ons-navigator>
+
+<ons-template id="navigator.html">
+    <ons-page id="navigatorPage">
+      <ons-tabbar>
+        <ons-tab page="html/home.html" icon="ion-home" label="Home" active></ons-tab>
+        <ons-tab page="html/transactions.html" icon="ion-cash" label="Transactions"></ons-tab>
+        <!--<ons-tab page="html/recurrents.html" icon="ion-loop" label="Recurrents"></ons-tab>-->
+        <ons-tab page="html/categories.html" icon="ion-pricetag" label="Categories"></ons-tab>
+        <ons-tab page="html/settings.html" icon="ion-gear-b" label="Settings"></ons-tab>
+      </ons-tabbar>
+    </ons-page>
+</ons-template>
+
+</body>
+</html>
