@@ -6,9 +6,9 @@ myApp.services = {
 
     transactions: {
         save: function() {
-            debug("saving transaction");
+            //debug("saving transaction");
             var amount = $("#amount").val();
-            var description = $("#amount").val();
+            var description = $("#description").val();
             db.transaction(
                 function( transaction ){
                     transaction.executeSql(
@@ -22,13 +22,13 @@ myApp.services = {
         },
 
         refresh: function()  {
-            debug("refreshing transactions");
+            //debug("refreshing transactions");
             var list = $( "#transactions" );
             this.load(this.refreshList);
         },
 
         load: function(callback) {
-            debug("loading transactions");
+            //debug("loading transactions");
             db.transaction(
                 function( transaction ){
                     transaction.executeSql(
@@ -44,10 +44,11 @@ myApp.services = {
         },
 
         refreshList: function(results) {
-            debug("refreshing transactions list");
+            //debug("refreshing transactions list");
             var list = $( "#transactionsList" );
             list.empty();
             if (!results){return;}
+            debug("result.rows: "+ results.rows.length);
             $.each(
                 results.rows,
                 function( rowIndex ){

@@ -9,8 +9,6 @@ document.addEventListener('init', function(event) {
     console.log(text);
   }
 
-  debug("db = "+ db);
-
   var page = event.target;
 
   // Each page calls its own initialization controller.
