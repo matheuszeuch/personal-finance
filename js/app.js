@@ -4,15 +4,12 @@ window.debug = {};
 
 document.addEventListener('init', function(event) {
 
-  debug = {
-    log: function(text) {
-      $("#console").append("<p>" + text + "</p>");
-      console.log(text);
-    }
+  debug = function(text) {
+    $("#console").append("<p>" + text + "</p>");
+    console.log(text);
   }
 
-
-
+  debug("db = "+ db);
 
   var page = event.target;
 

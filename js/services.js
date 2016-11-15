@@ -6,6 +6,7 @@ myApp.services = {
 
     transactions: {
         save: function() {
+            debug("saving transaction");
             var amount = $("#amount").val();
             var description = $("#amount").val();
             db.transaction(
@@ -21,11 +22,13 @@ myApp.services = {
         },
 
         refresh: function()  {
+            debug("refreshing transactions");
             var list = $( "#transactions" );
             this.load(this.refreshList);
         },
 
         load: function(callback) {
+            debug("loading transactions");
             db.transaction(
                 function( transaction ){
                     transaction.executeSql(
@@ -41,6 +44,7 @@ myApp.services = {
         },
 
         refreshList: function(results) {
+            debug("refreshing transactions list");
             var list = $( "#transactionsList" );
             list.empty();
             if (!results){return;}
