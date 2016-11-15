@@ -1,7 +1,18 @@
 // App logic.
 window.myApp = {};
+window.debug = {};
 
 document.addEventListener('init', function(event) {
+
+  debug = {
+    log: function(text) {
+      $("#console").append("<p>" + text + "</p>");
+      console.log(text);
+    }
+  }
+
+
+
 
   var page = event.target;
 
@@ -13,7 +24,6 @@ document.addEventListener('init', function(event) {
   // Fill the lists with initial data when the pages we need are ready.
   // This only happens once at the beginning of the app.
   if (page.id === 'homePage') {
-    
   }
 
 });

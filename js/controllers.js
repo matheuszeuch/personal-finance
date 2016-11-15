@@ -12,6 +12,7 @@ myApp.controllers = {
 
   transactionsPage: function(page) {
     myApp.services.transactions.refresh();
+    debug.log("debugando");
   },
 
   homePage: function(page) {
