@@ -46,12 +46,14 @@ myApp.services = {
         refreshList: function(results) {
             //debug("refreshing transactions list");
             var list = $( "#transactionsList" );
+            debug(list);
             list.empty();
-            if (!results){return;}
+            if (!results){debug("!results");return;}
             debug("result.rows: "+ results.rows.length);
             $.each(
                 results.rows,
                 function( rowIndex ){
+                    debug("rowIndex: "+ rowIndex);
                     var row = results.rows.item( rowIndex );
                     list.append( "<li>" + row.Description + "</li>" );
                 }
