@@ -3,7 +3,8 @@ window.myApp = {};
 window.debug = {};
 
 document.addEventListener('init', function(event) {
-
+  document.ontouchmove = function(e) {e.preventDefault()};
+  
   debug = function(text) {
     $("#console").append("<p>" + text + "</p>");
     console.log(text);
