@@ -47,12 +47,13 @@ myApp.services = {
             var list = $( "#transactionsList" );
             list.empty();
             if (!results){debug("!results");return;}
+            debug("results.rows: "+ JSON.stringify(results.rows));
             $.each(
                 results.rows,
                 function( rowIndex, row ){
                     //debug(obj);
                     //var row = results.rows.item( rowIndex );
-                    debug(JSON.stringify(row));
+                    debug("rowIndex: "+ rowIndex +" = "+ JSON.stringify(row));
                     list.append("<p>");
                     list.append("Amount: "+ row.Amount +" ");
                     list.append("("+ row.Description +")");
