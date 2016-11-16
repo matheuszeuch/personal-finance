@@ -35,6 +35,9 @@ myApp.services = {
                         ("SELECT * FROM Event ORDER BY Description ASC"),
                         [],
                         function( transaction, results ){
+                            debug("1 load() results: "+ JSON.stringify(results));
+                            debug("2 load() results.rows: "+ JSON.stringify(results.rows));
+                            debug("3 load() results.rows.rows: "+ JSON.stringify(results.rows.rows));
                             callback( results );
                         }
                     );
