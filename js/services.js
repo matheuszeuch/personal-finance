@@ -46,29 +46,17 @@ myApp.services = {
         refreshList: function(results) {
             var list = $( "#transactionsList" );
             list.empty();
+            list.append('<ons-list-header>Transactions History</ons-list-header>');
             if (!results){return;}
-
             var len = results.rows.length, i, item;
             for (i = 0; i < len; i++) {
                 item = results.rows.item(i);
-                list.append("<p>");
-                list.append("Amount: "+ item.Amount +" ");
-                list.append("("+ item.Description +")");
-                list.append("</p>");
+                var content = "<ons-list-item tappable>";
+                content += "Amount: "+ item.Amount +" ";
+                content += "("+ item.Description +")";
+                content += "</ons-list-item>";
+                list.append(content);
             }
-
-            /*_.each(
-                results.rows,
-                function( item, index ){
-                    //debug(obj);
-                    //var row = results.rows.item( rowIndex );
-                    //debug("rowIndex: "+ JSON.stringify(index) +" = "+ JSON.stringify(item));
-                    list.append("<p>");
-                    list.append("Amount: "+ item.Amount +" ");
-                    list.append("("+ item.Description +")");
-                    list.append("</p>");
-                }
-            );*/
         },
 
     }
