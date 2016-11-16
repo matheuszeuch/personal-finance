@@ -23,7 +23,7 @@ myApp.services = {
 
         refresh: function()  {
             //debug("refreshing transactions");
-            var list = $( "#transactions" );
+            //var list = $( "#transactions" );
             this.load(this.refreshList);
         },
 
@@ -46,17 +46,18 @@ myApp.services = {
         refreshList: function(results) {
             var list = $( "#transactionsList" );
             list.empty();
-            if (!results){debug("!results");return;}
+            if (!results){return;}
             debug("results.rows: "+ JSON.stringify(results.rows));
-            $.each(
+            debug("---");
+            _.each(
                 results.rows,
-                function( rowIndex, row ){
+                function( item, index ){
                     //debug(obj);
                     //var row = results.rows.item( rowIndex );
-                    debug("rowIndex: "+ rowIndex +" = "+ JSON.stringify(row));
+                    debug("rowIndex: "+ JSON.stringify(index) +" = "+ JSON.stringify(item));
                     list.append("<p>");
-                    list.append("Amount: "+ row.Amount +" ");
-                    list.append("("+ row.Description +")");
+                    list.append("Amount: "+ item.Amount +" ");
+                    list.append("("+ item.Description +")");
                     list.append("</p>");
                 }
             );
