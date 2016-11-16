@@ -35,9 +35,8 @@ myApp.services = {
                         ("SELECT * FROM Event ORDER BY Description ASC"),
                         [],
                         function( transaction, results ){
-                            debug("1 load() results: "+ JSON.stringify(results));
-                            debug("2 load() results.rows: "+ JSON.stringify(results.rows));
-                            debug("3 load() results.rows.rows: "+ JSON.stringify(results.rows.rows));
+                            debug("1: "+ JSON.stringify(results.rows.length));
+                            debug("2: "+ JSON.stringify(results.rows.item(0)));
                             callback( results );
                         }
                     );
@@ -50,14 +49,12 @@ myApp.services = {
             var list = $( "#transactionsList" );
             list.empty();
             if (!results){return;}
-            debug("results.rows: "+ JSON.stringify(results.rows));
-            debug("---");
             _.each(
                 results.rows,
                 function( item, index ){
                     //debug(obj);
                     //var row = results.rows.item( rowIndex );
-                    debug("rowIndex: "+ JSON.stringify(index) +" = "+ JSON.stringify(item));
+                    //debug("rowIndex: "+ JSON.stringify(index) +" = "+ JSON.stringify(item));
                     list.append("<p>");
                     list.append("Amount: "+ item.Amount +" ");
                     list.append("("+ item.Description +")");
