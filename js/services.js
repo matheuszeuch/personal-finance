@@ -35,8 +35,6 @@ myApp.services = {
                         ("SELECT * FROM Event ORDER BY Description ASC"),
                         [],
                         function( transaction, results ){
-                            debug("1: "+ JSON.stringify(results.rows.length));
-                            debug("2: "+ JSON.stringify(results.rows.item(0)));
                             callback( results );
                         }
                     );
@@ -49,7 +47,17 @@ myApp.services = {
             var list = $( "#transactionsList" );
             list.empty();
             if (!results){return;}
-            _.each(
+
+            var len = results.rows.length, i, item;
+            for (i = 0; i < len; i++) {
+                item = results.rows.item(i);
+                list.append("<p>");
+                list.append("Amount: "+ item.Amount +" ");
+                list.append("("+ item.Description +")");
+                list.append("</p>");
+            }
+
+            /*_.each(
                 results.rows,
                 function( item, index ){
                     //debug(obj);
@@ -60,7 +68,7 @@ myApp.services = {
                     list.append("("+ item.Description +")");
                     list.append("</p>");
                 }
-            );
+            );*/
         },
 
     }
