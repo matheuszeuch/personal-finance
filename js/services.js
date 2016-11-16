@@ -53,7 +53,10 @@ myApp.services = {
                     //debug(obj);
                     //var row = results.rows.item( rowIndex );
                     debug(JSON.stringify(row));
-                    list.append( "<li>" + row.Description + "</li>" );
+                    list.append("<p>");
+                    list.append("Amount: "+ row.Amount +" ");
+                    list.append("("+ row.Description +")");
+                    list.append("</p>");
                 }
             );
         },
